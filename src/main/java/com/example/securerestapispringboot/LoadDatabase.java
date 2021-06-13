@@ -22,6 +22,7 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(ItemRepository itemRepo, OrderRepository orderRepo) {
 
         return args -> {
+            log.info("Preloading hardcoded API items.");
             Order order = orderRepo.save(new Order(null, "First order"));
             List<Item> itemList = new ArrayList<>();
             itemList.add(itemRepo.save(new Item(10, "Item1", "manufacturer 1")));
@@ -32,6 +33,7 @@ public class LoadDatabase {
             order.setOrderedItems(itemList);
 
             orderRepo.save(order);
+            log.info("Preloading complete.");
 
         };
 
