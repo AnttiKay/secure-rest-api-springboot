@@ -42,7 +42,6 @@ public class ItemController {
             item.setPrice(newItem.getPrice());
             item.setManufacturer(newItem.getManufacturer());
             item.setDescription(newItem.getDescription());
-            item.setOrder(newItem.getOrder());
             return repository.save(item);
         }).orElseGet(() -> {
             newItem.setId(id);
