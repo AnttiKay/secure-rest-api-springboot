@@ -1,4 +1,4 @@
-package com.example.securerestapispringboot;
+package com.example.securerestapispringboot.entities;
 
 import java.util.Objects;
 
@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Item {
     private @Id @GeneratedValue long id;
-    private @ManyToOne Order order;
+    //private @ManyToOne Order order;
     private double price;
     private String description;
     private String manufacturer;
@@ -18,8 +18,8 @@ public class Item {
     private Item() {
     }
 
-    public Item(Order order, double price, String description, String manufacturer) {
-        this.order = order;
+    public Item(double price, String description, String manufacturer) {
+        //this.order = order;
         this.price = price;
         this.description = description;
         this.manufacturer = manufacturer;
@@ -33,13 +33,13 @@ public class Item {
 		return Objects.equals(id, item.id) &&
 			Objects.equals(price, item.price) &&
 			Objects.equals(description, item.description) &&
-			Objects.equals(manufacturer, item.manufacturer) &&
-			Objects.equals(order, item.order);
+			Objects.equals(manufacturer, item.manufacturer);
+			//Objects.equals(order, item.order);
 	}
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, order, price, description, manufacturer);
+        return Objects.hash(id, price, description, manufacturer);
     }
 
     public long getId() {

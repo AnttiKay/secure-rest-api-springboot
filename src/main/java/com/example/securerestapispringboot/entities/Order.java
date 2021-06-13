@@ -1,4 +1,4 @@
-package com.example.securerestapispringboot;
+package com.example.securerestapispringboot.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity
+@Entity(name = "ItemOrder")
 public class Order {
     private @Id @GeneratedValue long id;
     private @OneToMany List<Item> orderedItems = new ArrayList<>();
