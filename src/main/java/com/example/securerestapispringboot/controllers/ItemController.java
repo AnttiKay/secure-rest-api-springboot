@@ -38,7 +38,7 @@ public class ItemController {
     }
 
     @PutMapping("/items/{id}")
-    Item replaceEmployee(@RequestBody Item newItem, @PathVariable Long id) {
+    Item replaceItem(@RequestBody Item newItem, @PathVariable Long id) {
 
         return repository.findById(id).map(item -> {
             item.setPrice(newItem.getPrice());

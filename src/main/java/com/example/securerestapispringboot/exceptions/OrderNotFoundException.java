@@ -1,0 +1,7 @@
+package com.example.securerestapispringboot.exceptions;
+
+public class OrderNotFoundException extends RuntimeException{
+    public OrderNotFoundException(long id){
+        super("Could not find order with id: "+id);
+    }
+}
